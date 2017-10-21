@@ -1,0 +1,9 @@
+extends layout
+
+block content
+  .container
+    h3 Please enter the desired department.
+    form.mt-3
+      input#department(type="text").form-control
+      //- goes to /d/<whatever they entered>
+      a.btn.btn-primary.mt-3(href="#" onClick="window.location.href='d/' + document.getElementById('department').value") Get Report

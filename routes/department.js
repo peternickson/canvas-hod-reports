@@ -1,6 +1,6 @@
 var express = require('express')
 var router = new express.Router()
-var api = require('../models/api')
+var api = require('canvas-api-helper')
 
 router.get('/:department', function (req, res) {
   var department = req.params.department

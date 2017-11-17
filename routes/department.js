@@ -1,12 +1,12 @@
 var express = require('express')
 var router = new express.Router()
-var api = require('canvas-api-helper')
+var activity = require('../models/activity')
 
 router.get('/:department', function (req, res) {
-  var department = req.params.department
-  var token = req.session.token
-
-  // TODO: show activity of department.
+  activity(req.params.department, req.session.token, function (err, data) {
+    if (err) throw err
+    res.end(data)
+  })
 })
 
 module.exports = router

@@ -1,0 +1,9 @@
+extends layout
+
+block content
+  .container  
+    .single4
+  
+  script.
+    var url = new URL(window.location.href);
+    window.location.href = decodeURIComponent( url.searchParams.get('url') )

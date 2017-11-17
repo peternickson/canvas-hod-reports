@@ -1,9 +1,16 @@
 extends layout
 
 block content
-  .container
-    h3 Please enter the desired department.
+  .container.d-flex.flex-column.justify-content-center(style="height: 100vh")
+    h3 What department should a report be generated for?
+    p.mb-0 Make sure to use the autocompleted results
     form.mt-3
-      input#department(type="text").form-control
-      //- goes to /d/<whatever they entered>
-      a.btn.btn-primary.mt-3(href="#" onClick="window.location.href='d/' + document.getElementById('department').value") Get Report
+      input#department(type="text" data-options=sub).form-control
+      a.btn.btn-primary.mt-3(href="#" onClick="window.location.href= '/loading?url='+document.getElementById('department').value") Generate
+
+append js
+  script.
+    $('#department').atwho({
+      at: '',
+      data: $('#department').data('options')
+    })

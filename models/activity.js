@@ -27,11 +27,12 @@ module.exports = function (department, token, callback) {
               var d = x.created_at.substring(0, 10)
 
               var createdAt = new Date(d)
-              return (new Date() - createdAt) < 1000 * 60 * 60 * 24 * 7
+              return (new Date() - createdAt) < 1000 * 60 * 60 * 24 * 30
             })
 
+            // TODO: add course teacher
             resolve({
-              course: course.name,
+              course: course,
               assignments: recent
             })
           }).catch(err => reject(err))

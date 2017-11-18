@@ -1,0 +1,25 @@
+extends layout
+
+block content
+    .container.mt-5
+        h3 Courses with no assignments
+        .list-group
+            for obj in data
+                if obj.assignments.length == 0
+                    .list-group-item.list-group-item-danger.list-group-item-red
+                        p.text-white.mb-0= obj.course.name
+           
+        h3.mt-5 Other courses
+        .card-columns
+            for obj in data
+                if obj.assignments.length > 0
+                    .card
+                        .card-body
+                            h4.card-title.mb-0= obj.course.name
+                        ul.list-group.list-group-flush
+                            for assignment, index in obj.assignments
+                                if index <= 4
+                                    li.list-group-item= assignment.name
+                                else
+                                    li.list-group-item.bg-light #{obj.assignments.length - 5} hidden.
+                                    - break

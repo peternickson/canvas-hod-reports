@@ -5,7 +5,7 @@ var Canvas = new OAuth2({
   clientSecret: process.env.SECRET,
   state: crypto.randomBytes(16).toString('hex'),
   authorizationUri: `https://kingalfred.test.instructure.com/login/oauth2/auth`,
-  redirectUri: 'https://canvas-reports-penguoir.c9users.io/login/callback',
+  redirectUri: 'https://canvashodreports.herokuapp.com/login/callback',
   accessTokenUri: `https://kingalfred.test.instructure.com/login/oauth2/token`
 })
 
